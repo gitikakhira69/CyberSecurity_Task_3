@@ -1,52 +1,32 @@
-Task 3 – Vulnerability Assessment Using OpenVAS
+# Basic Network Vulnerability Scan using Nessus
 
-Objective
+## 📌 Overview
+This project demonstrates a basic vulnerability assessment of a target machine (`192.168.60.3`) using **Nessus Essentials**. The scan reveals multiple vulnerabilities ranging from *Informational* to *Critical*.
 
-Conduct a vulnerability assessment on a target system using **OpenVAS** (Greenbone Vulnerability Manager) and document the findings.
+## 🔧 Tools Used
+- Nessus Essentials
+- Kali Linux
+- Firefox (for Nessus GUI access)
 
----
+## 📂 Contents
+- **My_Basic_Network_Scan_5qfceh.pdf** – Original Nessus report
+- **screenshots/** – Screenshots of Nessus dashboard, results, and scan setup
+- **report/** – Final PDF report answering the questions in task PDF
 
-Tools Used
+## 🚀 Steps Performed
+1. Installed Nessus and started the service.
+2. Configured a **Basic Network Scan**.
+3. Targeted IP: `192.168.60.3`
+4. Analyzed the vulnerabilities categorized by severity.
+5. Created a detailed report as per task instructions.
 
-- Kali Linux (as the host operating system)
-- Greenbone Vulnerability Manager (OpenVAS)
-- PostgreSQL for OpenVAS database backend
-- Firefox (for accessing the Greenbone Security Assistant web UI)
+## 📌 Key Findings
+- 2 Critical Vulnerabilities
+- 3 High Vulnerabilities
+- Multiple Medium and Informational findings
 
----
+## 📊 Screenshots
+Please refer to the `screenshots/` folder for all required evidence of the scanning process.
 
-Steps Followed
-
-1. Installation & Setup
-- Updated system and installed required dependencies.
-- Installed OpenVAS (sudo apt install openvas).
-- Ran initial setup using:
-  sudo gvm-setup
-Checked configuration with:
-sudo gvm-check-setup
-           
-2. Fixing Feed Sync Issues
-Resolved SCAP and CERT feed errors by using:
-sudo greenbone-feed-sync --type SCAP
-sudo greenbone-feed-sync --type CERT
-           
-3. Database & Service Issues
-Addressed PostgreSQL collation mismatch.
-Restarted database and services:
-sudo systemctl start postgresql
-sudo systemctl restart gvmd ospd-openvas gsad
-           
-4. Launching Web UI
-Started GSAD manually:
-sudo gsad --no-redirect \
-  --listen=127.0.0.1 \
-  --port=9392 \
-  --ssl-private-key=/var/lib/gvm/private/CA/serverkey.pem \
-  --ssl-certificate=/var/lib/gvm/CA/servercert.pem \
-  --foreground --verbose
-Accessed via https://127.0.0.1:9392
-
-5. Performing Scan
-Created target, credentials, and scan task.
-Ran full scan against the target system.
-Exported report as PDF.
+## 📄 Final Report
+The report folder includes the structured analysis answering all the questions from the task PDF.
